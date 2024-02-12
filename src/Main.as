@@ -1,21 +1,30 @@
 auto g_app;
 auto g_network;
 auto g_serverInfo;
+auto g_mapInfo;
+
 
 void Main() {
+    log("Main func has started", LogLevel::Info, 6);
     NadeoServices::AddAudience("NadeoClubServices");
     while (!NadeoServices::IsAuthenticated("NadeoClubServices")) {
       yield();
     }
-    if (!isInCOTD) return;
+    if (!Perms()) return;
+    if (!IsCurrentlyInCOTD()) return;
 
-    startnew();
+    MapDataPopulate();
+
+	auto t_data;
+    t_data = GetMapData();
+
+    startnew(SendInfoToServer(t_data));
 }
 
 void Update(float dt) {
-    auto g_app = cast<CTrackMania>(GetApp());
-    auto g_network = cast<CTrackManiaNetwork>(app.Network);
-    auto g_serverInfo = cast<CTrackManiaNetworkServerInfo>(network.ServerInfo);
-
-    server_info.CurGameModeStr == "TM_COTDQualifications_Online"
-} 
+    g_app = cast<CTrackMania>(GetApp());
+    g_network = cast<CTrackManiaNetwork>(g_app.Network);
+    g_serverInfo = cast<CTrackManiaNetworkServerInfo>(g_network.ServerInfo);
+    
+    g_mapInfo = g_app.RootMap.MapInfo;
+}
