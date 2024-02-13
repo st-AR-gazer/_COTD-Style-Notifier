@@ -1,7 +1,10 @@
-auto g_app;
-auto g_network;
-auto g_serverInfo;
-auto g_mapInfo;
+CTrackMania@ g_app;
+CTrackManiaNetwork@ g_network;
+CTrackManiaNetworkServerInfo@ g_serverInfo;
+CGameCtnChallenge@ g_map;
+CGameCtnChallengeInfo@ g_mapInfo;
+
+
 
 
 void Main() {
@@ -12,19 +15,33 @@ void Main() {
     }
     if (!Perms()) return;
     if (!IsCurrentlyInCOTD()) return;
+    
+    Set20HourFlag();
 
     MapDataPopulate();
 
-	auto t_data;
-    t_data = GetMapData();
+    StartSeverComms();
 
-    startnew(SendInfoToServer(t_data));
 }
 
 void Update(float dt) {
-    g_app = cast<CTrackMania>(GetApp());
-    g_network = cast<CTrackManiaNetwork>(g_app.Network);
-    g_serverInfo = cast<CTrackManiaNetworkServerInfo>(g_network.ServerInfo);
+    CTrackMania@ app = cast<CTrackMania>(GetApp());
+    if (app is null) return;
+    @g_app = app;
+
+    auto network = cast<CTrackManiaNetwork>(app.Network);
+    if (network is null) return;
+    @g_network = network;
     
-    g_mapInfo = g_app.RootMap.MapInfo;
+    auto serverInfo = cast<CTrackManiaNetworkServerInfo>(network.ServerInfo);
+    if (serverInfo is null) return;
+    @g_serverInfo = serverInfo;
+    
+    auto map = cast<CGameCtnChallenge>(app.RootMap);
+    if (map is null) return;
+    @g_map = map;
+
+    auto mapInfo = cast<CGameCtnChallengeInfo>(app.RootMap.MapInfo);
+    if (mapInfo is null) return;
+    @g_mapInfo = mapInfo;
 }

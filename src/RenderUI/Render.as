@@ -7,13 +7,12 @@ void RenderUI() {
     if (!UI::IsOverlayShown()) window_flags |= UI::WindowFlags::NoInputs;
     UI::Begin("COTD Style Notifyer - Test Window", window_flags);
         UI::BeginGroup();
-            UI::Text(g_mapInfo.Name);
-            UI::Text(g_mapInfo.AuthorNickName);
-            UI::Text(g_mapInfo.Comments);
+            UI::Text("Map UID here");
+            UI::Text("Author nickname here");
+            UI::Text("Map comment here");
             UI::Separator();
-            UI::Text("Map UID: " + map_info.MapUid);
             if (UI::Button("Send Request", vec2(100, 0))) {
-                SendInfoToServer();
+                StartSeverComms();
             }
 
         UI::EndGroup();
