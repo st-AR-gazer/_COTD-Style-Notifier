@@ -7,8 +7,8 @@ void MapDataPopulate() {
     mapData['mapType'] = "PlaceholderType";
     mapData['mapStyle'] = "PlaceholderStyle";
     mapData['authorNickName'] = "PlaceholderAuthor";
-    mapData["pluginVersion"] = Meta::Version();
-    mapData["time"] = time;
+    mapData["pluginVersion"] = Meta::ExecutingPlugin().Version;
+    mapData["time"] = Time::get_Now();
 }
 
 dictionary@ GetMapData() {
