@@ -21,8 +21,8 @@ dictionary@ GetMapData() {
         data['mapType'] = g_mapInfo.MapType;
         data['mapStyle'] = GetMapStyle();
         data['authorNickName'] = g_mapInfo.AuthorNickName;
-        mapData["pluginVersion"] = Meta::ExecutingPlugin().Version;
-        mapData["time"] = Time::get_Now();
+        data["pluginVersion"] = Meta::ExecutingPlugin().Version;
+        data["time"] = Time::get_Now();
 
         return data;
     } else {

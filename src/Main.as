@@ -1,11 +1,11 @@
 CTrackMania@ g_app;
+
+CGameFid@ g_fids;
+
 CTrackManiaNetwork@ g_network;
 CTrackManiaNetworkServerInfo@ g_serverInfo;
 CGameCtnChallenge@ g_map;
 CGameCtnChallengeInfo@ g_mapInfo;
-
-
-
 
 void Main() {
     log("Main func has started", LogLevel::Info, 6);
@@ -16,18 +16,23 @@ void Main() {
     if (!Perms()) return;
     if (!IsCurrentlyInCOTD()) return;
     
-    Set20HourFlag();
-
     MapDataPopulate();
 
     StartSeverComms();
-
 }
 
 void Update(float dt) {
+    TimeRestriction();
+    if (!Perms()) return;
+    if (!IsCurrentlyInCOTD()) return;
+
     CTrackMania@ app = cast<CTrackMania>(GetApp());
     if (app is null) return;
     @g_app = app;
+
+	CGameFid@ fids = cast<CGameFid>(g_app.);
+    if (fids is null) return;
+    @g_fids = fids;
 
     auto network = cast<CTrackManiaNetwork>(app.Network);
     if (network is null) return;
