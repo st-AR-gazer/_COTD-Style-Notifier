@@ -17,7 +17,7 @@ bool TimeRestriction() {
     return false;
 }
 
-auto GetTimeFormatted() {
+Time::Info GetTimeFormatted() {
     int currentTimestamp = Time::get_Stamp();
     
     Time::Info currentTime = Time::Parse(currentTimestamp);
