@@ -7,16 +7,20 @@ CTrackManiaNetworkServerInfo@ g_serverInfo;
 CGameCtnChallenge@ g_map;
 CGameCtnChallengeInfo@ g_mapInfo;
 
+const bool RETURN_ONLY = true;
 void Main() {
+    log(" " + GetTimeFormatted(), LogLevel::Test, 12);
+    if (RETURN_ONLY) return;
+
     log("Main func has started", LogLevel::Info, 6);
+    
     NadeoServices::AddAudience("NadeoClubServices");
-    while (!NadeoServices::IsAuthenticated("NadeoClubServices")) {
-      yield();
-    }
+    while (!NadeoServices::IsAuthenticated("NadeoClubServices")) { yield(); }
+
     if (!Perms()) return;
     if (!IsCurrentlyInCOTD()) return;
     
-    MapDataPopulate();
+    MapDataPopulateDefault();
 
     StartSeverComms();
 }

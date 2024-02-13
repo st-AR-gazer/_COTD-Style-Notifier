@@ -3,7 +3,7 @@ string g_jsonDataForServer;
 void SendInfoToServer() {
     Net::HttpRequest req;
     req.Method = Net::HttpMethod::Post;
-    req.Url = "http://cotd.contoso.com/api/endpoint";
+    req.Url = "http://cotd.xjk.yt/api/endpoint/";
     req.Body = g_jsonDataForServer;
     req.Start();
     while (!req.Finished()) {

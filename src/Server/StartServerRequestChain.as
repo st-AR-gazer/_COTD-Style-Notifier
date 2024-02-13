@@ -1,6 +1,5 @@
 void StartSeverComms() {
-    dictionary@ t_data = GetMapData();
-    g_jsonDataForServer = DictToJson(t_data);
+    g_jsonDataForServer = GetMapData(); // g_jsonDataForServer is defined in the SendInfoToServer function
 
     startnew(SendInfoToServer);
 }

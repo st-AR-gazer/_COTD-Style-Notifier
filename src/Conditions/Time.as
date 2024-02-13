@@ -2,7 +2,7 @@ bool TimeRestriction() {
     int currentTimestamp = Time::get_Stamp();
     
     Time::Info currentTime = Time::Parse(currentTimestamp);
-
+    
     int startHour = 19;
     int startMinute = 59;
 
@@ -15,4 +15,16 @@ bool TimeRestriction() {
     }
 
     return false;
+}
+
+int GetTimeFormatted() {
+    int currentTimestamp = Time::get_Stamp();
+    
+    Time::Info currentTime = Time::Parse(currentTimestamp);
+    
+    return currentTime;
+}
+
+int GetTimeStamp() {
+    return Time::get_Stamp();
 }
