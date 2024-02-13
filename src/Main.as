@@ -1,6 +1,6 @@
 CTrackMania@ g_app;
 
-CGameFid@ g_fids;
+// CGameFid@ g_fids;
 
 CTrackManiaNetwork@ g_network;
 CTrackManiaNetworkServerInfo@ g_serverInfo;
@@ -34,9 +34,17 @@ void Update(float dt) {
     if (app is null) return;
     @g_app = app;
 
-	CGameFid@ fids = cast<CGameFid>(g_app.);
-    if (fids is null) return;
-    @g_fids = fids;
+	// // CGameFid@ fids = cast<CGameFid>(app. /*todo -- check variable declaration below.*/;
+    // auto tmp = cast<CTrackMania>(app);
+    // print("CTrackMania.ManiaTitlesFolder: " + tostring(tmp.ManiaTitlesFolder));
+    // print("CTrackMania.LoadedManiaTitle: " + tostring(tmp.LoadedManiaTitle.fid));
+    // print("CTrackMania.LoadedCore: " + tostring(tmp.LoadedCore));
+    // print("CTrackMania.Resources: " + tostring(tmp.Resources));
+    // print("CTrackMania.RootMap: " + tostring(tmp.RootMap.MapInfo.Fids.Trees));
+
+    // 
+    // if (fids is null) return;
+    // @g_fids = fids;
 
     auto network = cast<CTrackManiaNetwork>(app.Network);
     if (network is null) return;
