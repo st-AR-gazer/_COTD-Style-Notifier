@@ -1,4 +1,4 @@
-string g_jsonDataForServer;
+Json::Value g_jsonDataForServer;
 
 void SendInfoToServer() {
     log("Sending data to server...", LogLevel::InfoG, 4);
@@ -19,5 +19,5 @@ void SendInfoToServer() {
     } else {
         log("Failed to send data. Response code: " + req.ResponseCode(), LogLevel::Error, 20);
     }
-    g_jsonDataForServer = "";
+    return;
 }
