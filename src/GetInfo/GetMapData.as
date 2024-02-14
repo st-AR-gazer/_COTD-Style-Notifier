@@ -1,7 +1,10 @@
-Json::Value mapData;
+Json::Value g_mapData;
+
 
 void MapDataPopulateDefault() {
-    mapData["isPlaceholder"] = "true";
+    Json::Value mapData;
+
+    mapData["isPlaceholder"] = true;
     mapData["requestType"] = "PlaceholderRequestType";
     mapData["mapUid"] = "PlaceholderUID";
     mapData["mapName"] = "PlaceholderName";
@@ -10,15 +13,17 @@ void MapDataPopulateDefault() {
     mapData["authorNickName"] = "PlaceholderAuthor";
     mapData["pluginVersion"] = Meta::ExecutingPlugin().Version;
     mapData["time"] = Time::Now;
+
+    g_mapData = mapData;
 }
 
 Json::Value GetMapData() {
-    if (g_mapInfo is null) { return mapData; }
+    if (g_mapInfo is null) { return g_mapData; }
     log("GetMapData() has been called", LogLevel::Info, 17);
 
-    if (mapData.Length == 0) {
+    if (g_mapData.Length == 0) {
         Json::Value data;
-        data["isPlaceholder"] = "false";
+        data["isPlaceholder"] = false;
         data["requestType"] = "COTD-StyleNotifyer";
         data["mapUid"] = g_mapInfo.MapUid;
         data["mapName"] = g_mapInfo.Name;
@@ -28,10 +33,10 @@ Json::Value GetMapData() {
         data["pluginVersion"] = Meta::ExecutingPlugin().Version;
         data["time"] = GetTimeF();
 
-        mapData = data;
+        g_mapData = data;
 
         return data;
     } else {
-        return mapData;
+        return g_mapData;
     }
 }
