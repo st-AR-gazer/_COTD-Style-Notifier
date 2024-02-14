@@ -7,13 +7,6 @@ CGameCtnChallengeInfo@ g_mapInfo;
 const bool RETURN_ONLY = false;
 
 void Main() {
-        // Testing
-        log("MapDataPopulateDefault() started", LogLevel::Info, 22);
-        MapDataPopulateDefault();
-    
-    
-    
-    sleep(32);
     log(" " + GetTimeF(), LogLevel::Test, 10);
     if (RETURN_ONLY) return;
 
@@ -26,6 +19,9 @@ void Main() {
     // if (!IsCurrentlyInCOTD()) return;
 
     log("Perms and COTD check passed", LogLevel::Info, 21);
+    log("MapDataPopulateDefault() started", LogLevel::Info, 22);
+
+    MapDataPopulateDefault();
 
     log("MapDataPopulateDefault() has been called, and the json has been populated with default data", LogLevel::Info, 26);
     log("StartSeverComms() started", LogLevel::Info, 27);

@@ -1,15 +1,15 @@
 Json::Value mapData;
 
 void MapDataPopulateDefault() {
-    mapData["isPlaceholder"] = true;
-    mapData["requestType"] = "PlaceholderRequestType";
-    mapData["mapUid"] = "PlaceholderUID";
-    mapData["mapName"] = "PlaceholderName";
-    mapData["mapType"] = "PlaceholderType";
-    mapData["mapStyle"] = "PlaceholderStyle";
-    mapData["authorNickName"] = "PlaceholderAuthor";
-    mapData["pluginVersion"] = Meta::ExecutingPlugin().Version;
-    mapData["time"] = Time::Now;
+    // mapData["isPlaceholder"] = true;
+    // mapData["requestType"] = "PlaceholderRequestType";
+    // mapData["mapUid"] = "PlaceholderUID";
+    // mapData["mapName"] = "PlaceholderName";
+    // mapData["mapType"] = "PlaceholderType";
+    // mapData["mapStyle"] = "PlaceholderStyle";
+    // mapData["authorNickName"] = "PlaceholderAuthor";
+    // mapData["pluginVersion"] = Meta::ExecutingPlugin().Version;
+    // mapData["time"] = Time::Now;
 }
 
 Json::Value GetMapData() {
