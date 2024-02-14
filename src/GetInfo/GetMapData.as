@@ -1,8 +1,7 @@
 Json::Value mapData;
 
 void MapDataPopulateDefault() {
-    Json::Value tmp;
-    Json::Object(tmp);
+    Json::Value tmp = Json::Object();
 
     tmp["isPlaceholder"] = true;
     tmp["requestType"] = "PlaceholderRequestType";
