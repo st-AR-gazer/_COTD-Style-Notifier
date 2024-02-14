@@ -24,7 +24,7 @@ void Main() {
 }
 
 void Update(float dt) {
-    TimeRestriction();
+    if (!TimeRestriction()) return;
     if (!Perms()) return;
     if (!IsCurrentlyInCOTD()) return;
 
