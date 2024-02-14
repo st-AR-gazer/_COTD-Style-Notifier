@@ -2,6 +2,7 @@ Json::Value mapData;
 
 void MapDataPopulateDefault() {
     mapData["isPlaceholder"] = true;
+    mapData["requestType"] = "PlaceholderRequestType";
     mapData["mapUid"] = "PlaceholderUID";
     mapData["mapName"] = "PlaceholderName";
     mapData["mapType"] = "PlaceholderType";
@@ -17,6 +18,7 @@ Json::Value GetMapData() {
     if (mapData.Length == 0) {
         Json::Value data;
         data["isPlaceholder"] = false;
+        data["requestType"] = "COTD-StyleNotifyer";
         data["mapUid"] = g_mapInfo.MapUid;
         data["mapName"] = g_mapInfo.Name;
         data["mapType"] = g_mapInfo.MapType;
