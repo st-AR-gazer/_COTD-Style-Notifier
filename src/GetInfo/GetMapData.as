@@ -14,6 +14,7 @@ void MapDataPopulateDefault() {
 
 Json::Value GetMapData() {
     if (g_mapInfo is null) { return mapData; }
+    log("GetMapData() has been called", LogLevel::Info, 17);
 
     if (mapData.Length == 0) {
         Json::Value data;
