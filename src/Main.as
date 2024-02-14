@@ -24,9 +24,9 @@ void Main() {
     MapDataPopulateDefault();
 
     log("MapDataPopulateDefault() has been called, and the json has been populated with default data", LogLevel::Info, 26);
-    log("StartSeverComms() started", LogLevel::Info, 27);
+    log("StartServerComms() started", LogLevel::Info, 27);
 
-    StartSeverComms();
+    StartServerComms();
 }
 
 void Update(float dt) {

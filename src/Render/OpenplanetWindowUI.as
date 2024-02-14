@@ -12,7 +12,7 @@ void RenderWindowedUI() {
             UI::Text("NIK: " + g_mapInfo.AuthorNickName);
             UI::Text("COM: " + g_mapInfo.Comments);
             UI::Separator();
-            if (UI::Button("Send Request", vec2(100, 0))) { StartSeverComms(); }
+            if (UI::Button("Send Request", vec2(100, 0))) { StartServerComms(); }
 
         UI::EndGroup();
     UI::End();
