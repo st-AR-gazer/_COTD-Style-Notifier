@@ -8,6 +8,7 @@ CGameCtnChallengeInfo@ g_mapInfo;
 const bool RETURN_ONLY = false;
 
 void Main() {
+    yield(1);
     log(" " + GetTimeF(), LogLevel::Test, 10);
     if (RETURN_ONLY) return;
 
