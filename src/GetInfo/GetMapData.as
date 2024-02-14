@@ -1,7 +1,7 @@
 Json::Value mapData;
 
 void MapDataPopulateDefault() {
-    //Json::Value tmp;
+    Json::Value tmp;
     Json::Object(tmp);
 
     tmp["isPlaceholder"] = true;
