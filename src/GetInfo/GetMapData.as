@@ -23,7 +23,7 @@ Json::Value GetMapData() {
         data["mapStyle"] = GetMapStyle();
         data["authorNickName"] = g_mapInfo.AuthorNickName;
         data["pluginVersion"] = Meta::ExecutingPlugin().Version;
-        data["time"] = GetTimeFormatted();
+        data["time"] = GetTimeF();
 
         mapData = data;
 

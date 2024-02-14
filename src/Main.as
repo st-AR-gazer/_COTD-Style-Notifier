@@ -1,15 +1,13 @@
 CTrackMania@ g_app;
 
-// CGameFid@ g_fids;
-
 CTrackManiaNetwork@ g_network;
 CTrackManiaNetworkServerInfo@ g_serverInfo;
 CGameCtnChallenge@ g_map;
 CGameCtnChallengeInfo@ g_mapInfo;
 
-const bool RETURN_ONLY = true;
+const bool RETURN_ONLY = false;
 void Main() {
-    log(" " + GetTimeFormatted(), LogLevel::Test, 12);
+    log(" " + GetTimeF(), LogLevel::Test, 12);
     if (RETURN_ONLY) return;
 
     log("Main func has started", LogLevel::Info, 6);
@@ -26,25 +24,13 @@ void Main() {
 }
 
 void Update(float dt) {
-    TimeRestriction();
+    if (!TimeRestriction()) return;
     if (!Perms()) return;
     if (!IsCurrentlyInCOTD()) return;
 
     CTrackMania@ app = cast<CTrackMania>(GetApp());
     if (app is null) return;
     @g_app = app;
-
-	// // CGameFid@ fids = cast<CGameFid>(app. /*todo -- check variable declaration below.*/;
-    // auto tmp = cast<CTrackMania>(app);
-    // print("CTrackMania.ManiaTitlesFolder: " + tostring(tmp.ManiaTitlesFolder));
-    // print("CTrackMania.LoadedManiaTitle: " + tostring(tmp.LoadedManiaTitle.fid));
-    // print("CTrackMania.LoadedCore: " + tostring(tmp.LoadedCore));
-    // print("CTrackMania.Resources: " + tostring(tmp.Resources));
-    // print("CTrackMania.RootMap: " + tostring(tmp.RootMap.MapInfo.Fids.Trees));
-
-    // 
-    // if (fids is null) return;
-    // @g_fids = fids;
 
     auto network = cast<CTrackManiaNetwork>(app.Network);
     if (network is null) return;
