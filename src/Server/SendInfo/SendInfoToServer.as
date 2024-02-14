@@ -1,11 +1,12 @@
 Json::Value g_jsonDataForServer;
+string g_jsonDataForServerString;
 
 void SendInfoToServer() {
     log("Sending data to server...", LogLevel::InfoG, 4);
     Net::HttpRequest req;
     req.Method = Net::HttpMethod::Post;
     req.Url = "http://cotd.xjk.yt/api/endpoint/";
-    req.Body = g_jsonDataForServer;
+    req.Body = g_jsonDataForServerString;
     req.Start();
     while (!req.Finished()) {
         yield();

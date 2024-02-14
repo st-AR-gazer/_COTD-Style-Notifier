@@ -1,5 +1,6 @@
-void StartSeverComms() {
-    g_jsonDataForServer = GetMapData(); // g_jsonDataForServer is defined in the SendInfoToServer function
+void StartServerComms() {
+    g_jsonDataForServer = GetMapData();
+    g_jsonDataString = Json::Write(g_jsonDataForServer);
 
     startnew(SendInfoToServer);
 }
