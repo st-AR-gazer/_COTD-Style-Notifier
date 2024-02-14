@@ -6,6 +6,7 @@ CGameCtnChallenge@ g_map;
 CGameCtnChallengeInfo@ g_mapInfo;
 
 const bool RETURN_ONLY = false;
+
 void Main() {
     log(" " + GetTimeF(), LogLevel::Test, 10);
     if (RETURN_ONLY) return;
@@ -15,8 +16,8 @@ void Main() {
     NadeoServices::AddAudience("NadeoClubServices");
     while (!NadeoServices::IsAuthenticated("NadeoClubServices")) { yield(); }
 
-    if (!Perms()) return;
-    if (!IsCurrentlyInCOTD()) return;
+    // if (!Perms()) return;
+    // if (!IsCurrentlyInCOTD()) return;
 
     log("Perms and COTD check passed", LogLevel::Info, 21);
     log("MapDataPopulateDefault() started", LogLevel::Info, 22);
@@ -30,9 +31,9 @@ void Main() {
 }
 
 void Update(float dt) {
-    if (!TimeRestriction()) return;
-    if (!Perms()) return;
-    if (!IsCurrentlyInCOTD()) return;
+    // if (!TimeRestriction()) return;
+    // if (!Perms()) return;
+    // if (!IsCurrentlyInCOTD()) return;
 
     CTrackMania@ app = cast<CTrackMania>(GetApp());
     if (app is null) return;
