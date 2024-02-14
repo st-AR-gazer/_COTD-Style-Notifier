@@ -5,7 +5,7 @@ CTrackManiaNetworkServerInfo@ g_serverInfo;
 CGameCtnChallenge@ g_map;
 CGameCtnChallengeInfo@ g_mapInfo;
 
-const bool RETURN_ONLY = true;
+const bool RETURN_ONLY = false;
 void Main() {
     log(" " + GetTimeF(), LogLevel::Test, 12);
     if (RETURN_ONLY) return;
