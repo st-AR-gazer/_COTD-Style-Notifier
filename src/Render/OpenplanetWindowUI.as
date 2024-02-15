@@ -1,6 +1,7 @@
 void RenderWindowedUI() {
+    if (g_mapInfo is null) return;
 
-    UI::SetNextWindowPos(200, 200, false ? UI::Cond::Always : UI::Cond::FirstUseEver);
+    UI::SetNextWindowPos(vec2(200, 200), false ? UI::Cond::Always : UI::Cond::FirstUseEver);
 
     int window_flags = UI::WindowFlags::NoTitleBar | UI::WindowFlags::NoCollapse | 
                        UI::WindowFlags::AlwaysAutoResize | UI::WindowFlags::NoDocking;
