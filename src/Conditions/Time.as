@@ -17,6 +17,7 @@ bool TimeRestriction() {
     return false;
 } 
 
+// Available time formats: 'stamp', 'second', 'minute', 'hour', 'day', 'month', 'year', 'format'
 string GetTime(const string &in Time) {
     int currentTimestamp = Time::get_Stamp();
     
@@ -33,7 +34,7 @@ string GetTime(const string &in Time) {
     else if (Time == "format" || Time == "Format") {
         return currentTime.Year + "-" + currentTime.Month + "-" + currentTime.Day + " : " + currentTime.Hour + "_" + currentTime.Minute + "_" + currentTime.Second;
     }
-
+    
     return "Invalid time format. Input: " + Time + " is not a valid time format. Valid formats are: 'second', 'minute', 'hour', 'day', 'month', 'year', 'format'. Go to 'Time.as' to se the list of available inputs";
 }
 
